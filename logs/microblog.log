@@ -1,0 +1,75 @@
+2022-07-25 19:18:15,054 ERROR: Exception on /index [POST] [in C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask\app.py:1449]
+Traceback (most recent call last):
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask\app.py", line 1517, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask\app.py", line 1503, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask_login\utils.py", line 303, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Users\me\source\vsc\Flask\microblog\app\main\routes.py", line 41, in index
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1451, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 839, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\sqlalchemy\event\attr.py", line 256, in __call__
+    fn(*args, **kw)
+  File "C:\Users\me\source\vsc\Flask\microblog\app\models.py", line 112, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "C:\Users\me\source\vsc\Flask\microblog\app\search.py", line 9, in add_to_index
+    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\elasticsearch\_sync\client\utils.py", line 414, in wrapped
+    return api(*args, **kwargs)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\elasticsearch\_sync\client\__init__.py", line 2246, in index
+    return self.perform_request(  # type: ignore[return-value]
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\elasticsearch\_sync\client\_base.py", line 286, in perform_request
+    meta, resp_body = self.transport.perform_request(
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\elastic_transport\_transport.py", line 329, in perform_request
+    meta, raw_data = node.perform_request(
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\elastic_transport\_node\_http_urllib3.py", line 199, in perform_request
+    raise err from None
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x000001CDE62F4670>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it))
+2022-07-25 19:19:54,821 INFO: MicroBlog Start-up [in C:\Users\me\source\vsc\Flask\microblog\app\__init__.py:76]
+2022-07-25 19:20:37,417 INFO: MicroBlog Start-up [in C:\Users\me\source\vsc\Flask\microblog\app\__init__.py:76]
+2022-07-25 19:20:42,968 INFO: MicroBlog Start-up [in C:\Users\me\source\vsc\Flask\microblog\app\__init__.py:76]
+2022-07-25 19:21:09,808 ERROR: Exception on / [POST] [in C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask\app.py:1449]
+Traceback (most recent call last):
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask\app.py", line 1517, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask\app.py", line 1503, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\flask_login\utils.py", line 303, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Users\me\source\vsc\Flask\microblog\app\main\routes.py", line 41, in index
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1451, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 839, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\sqlalchemy\event\attr.py", line 256, in __call__
+    fn(*args, **kw)
+  File "C:\Users\me\source\vsc\Flask\microblog\app\models.py", line 112, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "C:\Users\me\source\vsc\Flask\microblog\app\search.py", line 9, in add_to_index
+    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\elasticsearch\_sync\client\utils.py", line 414, in wrapped
+    return api(*args, **kwargs)
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\elasticsearch\_sync\client\__init__.py", line 2246, in index
+    return self.perform_request(  # type: ignore[return-value]
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\elasticsearch\_sync\client\_base.py", line 286, in perform_request
+    meta, resp_body = self.transport.perform_request(
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\elastic_transport\_transport.py", line 329, in perform_request
+    meta, raw_data = node.perform_request(
+  File "C:\Users\me\source\vsc\Flask\microblog\venv\lib\site-packages\elastic_transport\_node\_http_urllib3.py", line 199, in perform_request
+    raise err from None
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x000001E65569F850>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it))
